@@ -16,3 +16,15 @@ services:
       MP_SMTP_AUTH_ACCEPT_ANY: 1
       MP_SMTP_AUTH_ALLOW_INSECURE: 1
 ###< symfony/mailer ###
+# Dossier des dépendances Node.js
+/node_modules/
+
+# Dossier de build de Vite
+/public/build/
+
+# Fichiers générés par Composer
+/vendor/
+composer.lock
+
+# Dossier de couverture de tests
+/coverage/

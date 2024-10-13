@@ -1,25 +1,42 @@
+# Ignore all node modules
+node_modules/
 
-###> symfony/framework-bundle ###
-/.env.local
-/.env.local.php
-/.env.*.local
-/config/secrets/prod/prod.decrypt.private.php
-/public/bundles/
+# Ignore build outputs from Vite or other asset managers
+public/build/
+
+# Ignore JavaScript and SCSS library folders if they are compiled or vendor code
+assets/js/
+assets/lib/
+assets/scss/
+
+# Ignore compiled CSS files
+assets/styles/*.css
+
+# Ignore package lock file if you don't want to commit the exact dependency versions
+package-lock.json
+
+# Ignore environment-specific configurations (already included, but good to keep in mind)
+.env.local
+.env.*.local
+
+# Ignore images directory if it's not meant to be versioned
+assets/img/
+
+# Ignore Composer vendor directory and PHP caches
+vendor/
+var/
+
+# Ignore Docker override file if it's specific to local setup
+compose.override.yaml
+
+# Ignore Symfony cache, logs, and session storage
 /var/
-/vendor/
-###< symfony/framework-bundle ###
+/var/cache/
+/var/log/
+/var/sessions/
 
-###> phpunit/phpunit ###
-/phpunit.xml
-.phpunit.result.cache
-###< phpunit/phpunit ###
+# Ignore PHPStorm project files
+.idea/
 
-###> symfony/phpunit-bridge ###
-.phpunit.result.cache
-/phpunit.xml
-###< symfony/phpunit-bridge ###
-
-###> symfony/asset-mapper ###
-/public/assets/
-/assets/vendor/
-###< symfony/asset-mapper ###
+# Ignore any coverage reports (useful if running tests with code coverage)
+coverage/
