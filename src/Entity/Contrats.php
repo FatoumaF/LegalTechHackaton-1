@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Entity;
 
 use App\Repository\ContratsRepository;
@@ -23,11 +22,10 @@ class Contrats
     private ?string $documentName = null;
 
     #[ORM\Column(type: 'string', length: 255, nullable: true)]
-    private $marking; // Add marking column to store workflow state
-
+    private ?string $marking = null; // Champ pour l'état du workflow
 
     #[Vich\UploadableField(mapping: 'contrat_file', fileNameProperty: 'documentName')]
-    private ?File $contratFile = null;
+    private ?File $contratFile = null; // Non persisté, utilisé pour l'upload
 
     #[ORM\Column(type: 'text')]
     private string $description;
@@ -44,10 +42,16 @@ class Contrats
     #[ORM\Column(type: 'string', length: 50)]
     private string $statut;
 
-    #[ORM\Column(type: 'datetime')]
+    #[ORM\Column(type: 'datetime', nullable: true)]
     private ?\DateTimeInterface $updatedAt = null;
 
-    
+    #[Vich\UploadableField(mapping: 'contrat_pdf', fileNameProperty: 'pdfName')]
+    private ?File $pdfFile = null; // Non persisté, utilisé pour le fichier PDF
+
+    #[ORM\Column(type: 'string', length: 255, nullable: true)]
+    private ?string $pdfName = null; // Stocke le nom du fichier PDF
+
+    // Getters et Setters
 
     public function getId(): ?int
     {
@@ -65,7 +69,18 @@ class Contrats
         return $this;
     }
 
-    public function getDescription(): string
+    public function getDocumentName(): ?string
+    {
+        return $this->documentName;
+    }
+
+    public function setDocumentName(?string $documentName): self
+    {
+        $this->documentName = $documentName;
+        return $this;
+    }
+
+    public function getDescription(): ?string
     {
         return $this->description;
     }
@@ -87,18 +102,18 @@ class Contrats
         return $this;
     }
 
-    public function getDateFin(): \DateTimeInterface
+    public function getDateFin(): ?\DateTimeInterface
     {
         return $this->dateFin;
     }
 
-    public function setDateFin(\DateTimeInterface $dateFin): self
+    public function setDateFin(?\DateTimeInterface $dateFin): self
     {
         $this->dateFin = $dateFin;
         return $this;
     }
 
-    public function getPartiesImpliquees(): string
+    public function getPartiesImpliquees(): ?string
     {
         return $this->partiesImpliquees;
     }
@@ -109,7 +124,7 @@ class Contrats
         return $this;
     }
 
-    public function getStatut(): string
+    public function getStatut(): ?string
     {
         return $this->statut;
     }
@@ -125,7 +140,6 @@ class Contrats
         $this->contratFile = $contratFile;
 
         if ($contratFile) {
-            // Cette ligne est requise pour éviter que le fichier ne soit re-téléchargé à chaque fois que l'entité est persistée
             $this->updatedAt = new \DateTimeImmutable();
         }
     }
@@ -148,7 +162,32 @@ class Contrats
     public function setMarking(?string $marking): self
     {
         $this->marking = $marking;
-
         return $this;
+    }
+
+    // Getters et Setters pour le fichier PDF
+
+    public function getPdfFile(): ?File
+    {
+        return $this->pdfFile;
+    }
+
+    public function setPdfFile(?File $pdfFile = null): void
+    {
+        $this->pdfFile = $pdfFile;
+
+        if ($pdfFile) {
+            $this->updatedAt = new \DateTimeImmutable();
+        }
+    }
+
+    public function getPdfName(): ?string
+    {
+        return $this->pdfName;
+    }
+
+    public function setPdfName(?string $pdfName): void
+    {
+        $this->pdfName = $pdfName;
     }
 }
