@@ -252,6 +252,10 @@
                   </div><!-- card-body-top -->
                   <div class="flot-chart-wrapper">
                     <div id="flotChart" class="flot-chart"></div>
+                    <div class="chart-container" style="position: relative; width: 100%; max-width: 700px; height: 400px; top: 0px; left: 10px">
+                   <canvas id="areaChart"></canvas>
+                    </div>
+
                   </div><!-- flot-chart-wrapper -->
                 </div><!-- card-body -->
               </div><!-- card -->
@@ -307,38 +311,31 @@
             <div class="col-lg-4">
               <div class="card card-dashboard-pageviews">
                 <div class="card-header">
-                  <h6 class="card-title">MY AI ROBOT</h6>
-                  <p class="card-text">This report is based on 100% of sessions.</p>
+                  <h1 class="card-title">MY AI ROBOT</h1>
                 </div><!-- card-header -->
                 <div class="card-body">
                   <div class="az-list-item">
                     <div>
-                      <h6>Admin Home</h6>
-                      <span>/demo/admin/index.html</span>
+                    
                     </div>
                     <div>
-                      <h6 class="tx-primary">7,755</h6>
-                      <span>31.74% (-100.00%)</span>
+                    
                     </div>
                   </div><!-- list-group-item -->
                   <div class="az-list-item">
                     <div>
-                      <h6>Form Elements</h6>
-                      <span>/demo/admin/forms.html</span>
+                     
                     </div>
                     <div>
-                      <h6 class="tx-primary">5,215</h6>
-                      <span>28.53% (-100.00%)</span>
+                    
                     </div>
                   </div><!-- list-group-item -->
                   <div class="az-list-item">
                     <div>
-                      <h6>Utilities</h6>
-                      <span>/demo/admin/util.html</span>
+                    
                     </div>
                     <div>
-                      <h6 class="tx-primary">4,848</h6>
-                      <span>25.35% (-100.00%)</span>
+                    
                     </div>
                   </div><!-- list-group-item -->
                   <div class="az-list-item">
@@ -490,7 +487,7 @@
             </div><!-- col-lg-3 -->
             <div class="col-lg-7 col-xl-8 mg-t-20 mg-lg-t-0">
               <div class="card card-table-one">
-                <h6 class="card-title">Mes collaborateurs</h6>
+                <h6 class="card-title">Statistiques et Performances</h6>
                 <p class="az-content-text mg-b-20">Part of this date range occurs before the new users metric had been calculated, so the old users metric is displayed.</p>
                 <div class="table-responsive">
                   <table class="table">
@@ -608,6 +605,7 @@
         }
     });
 
+  
     // Graphique 1 - Risque atténué
     const ctx1 = document.getElementById('flotChart1').getContext('2d');
     const flotChart1 = new Chart(ctx1, {
@@ -674,6 +672,9 @@
         }
     });
 
+  
+
+
     // Graphique à barres - Mes Contrats Signées
     const ctxBar = document.getElementById('chartBar5').getContext('2d');
     const chartBar5 = new Chart(ctxBar, {
@@ -705,5 +706,60 @@
             }
         }
     });
+    // Assurez-vous que cette variable est définie une seule fois
+const areaChartCtx = document.getElementById('areaChart').getContext('2d');
+
+// Créer un gradient pour l'arrière-plan de l'area chart
+const gradient = areaChartCtx.createLinearGradient(0, 0, 0, 400);
+gradient.addColorStop(0, 'rgba(0, 123, 255, 0.5)'); // Couleur semi-transparente
+gradient.addColorStop(1, 'rgba(0, 123, 255, 0)'); // Transparent
+
+// Créer le graphique Chart.js
+const myareaChart = new Chart(areaChartCtx, {
+  type: 'line',
+  data: {
+    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+    datasets: [{
+      label: 'Users',
+      data: [1200, 1900, 3000, 5000, 2300, 3200, 2500, 4000, 3500, 3000, 4500, 5000],
+      backgroundColor: gradient,
+      borderColor: 'rgba(0, 123, 255, 1)',
+      borderWidth: 2,
+      fill: true, // Remplir sous la ligne pour créer l'effet "area"
+    }]
+  },
+  options: {
+    maintainAspectRatio: false,
+    plugins: {
+      legend: {
+        display: true,
+        labels: {
+          color: '#333' // Couleur des étiquettes de la légende
+        }
+      }
+    },
+    scales: {
+      x: {
+        ticks: {
+          color: '#333', // Couleur des labels de l'axe X
+          font: {
+            size: 12
+          }
+        }
+      },
+      y: {
+        beginAtZero: true,
+        ticks: {
+          color: '#333', // Couleur des labels de l'axe Y
+          font: {
+            size: 12
+          },
+          stepSize: 1000 // Intervalle des graduations de l'axe Y
+        }
+      }
+    }
+  }
+});
+
 </script>
 </html>
