@@ -222,7 +222,7 @@
               <div class="card card-dashboard-one">
                 <div class="card-header">
                   <div>
-                    <h6 class="card-title">Website Audience Metrics</h6>
+                    <h6 class="card-title">Rapport Statistiques</h6>
                     <p class="card-text">Audience to which the users belonged while on the current date range.</p>
                   </div>
                   <div class="btn-group">
@@ -252,7 +252,7 @@
                   </div><!-- card-body-top -->
                   <div class="flot-chart-wrapper">
                     <div id="flotChart" class="flot-chart"></div>
-                    <div class="chart-container" style="position: relative; width: 100%; max-width: 700px; height: 400px; top: 0px; left: 10px">
+                    <div class="chart-container" style="position: relative; width: 100%; max-width: 600px; height: 500px; top: -150px; left: 50px">
                    <canvas id="areaChart"></canvas>
                     </div>
 
@@ -331,32 +331,16 @@
                     </div>
                   </div><!-- list-group-item -->
                   <div class="az-list-item">
-                    <div>
-                    
-                    </div>
-                    <div>
-                    
-                    </div>
+                <a href="{{ path('app_a_i') }}">
+    <img src="/build/assets/ai-assistant-vFpp2B4g.png" alt="AI Assistant" style="width: 200px; height: auto;">
+                </a>
+
+                  
                   </div><!-- list-group-item -->
                   <div class="az-list-item">
-                    <div>
-                      <h6>Form Validation</h6>
-                      <span>/demo/admin/validation.html</span>
-                    </div>
-                    <div>
-                      <h6 class="tx-primary">3,275</h6>
-                      <span>23.17% (-100.00%)</span>
-                    </div>
                   </div><!-- list-group-item -->
                   <div class="az-list-item">
-                    <div>
-                      <h6>Modals</h6>
-                      <span>/demo/admin/modals.html</span>
-                    </div>
-                    <div>
-                      <h6 class="tx-primary">3,003</h6>
-                      <span>22.21% (-100.00%)</span>
-                    </div>
+                   
                   </div><!-- list-group-item -->
                 </div><!-- card-body -->
               </div><!-- card -->
@@ -430,8 +414,8 @@
                 <div class="col-md-6 col-lg-12 mg-b-20 mg-md-b-0 mg-lg-b-20">
                   <div class="card card-dashboard-five">
                     <div class="card-header">
-                      <h6 class="card-title">Acquisition</h6>
-                      <span class="card-text">Tells you where your visitors originated from, such as search engines, social networks or website referrals.</span>
+                      <h6 class="card-title">Temps Moyen de Génération de Contrat</h6>
+                      <span class="card-text">Évalue l’efficacité de l’IA</span>
                     </div><!-- card-header -->
                     <div class="card-body row row-sm">
                       <div class="col-6 d-sm-flex align-items-center">
@@ -444,13 +428,7 @@
                         </div>
                       </div><!-- col -->
                       <div class="col-6 d-sm-flex align-items-center">
-                        <div class="card-chart bg-purple">
-                          <span class="peity-bar" data-peity='{"fill": ["#fff"], "width": 21, "height": 20 }'>7,4,5,7,2</span>
-                        </div>
-                        <div>
-                          <label>Sessions</label>
-                          <h4>9,065</h4>
-                        </div>
+                      
                       </div><!-- col -->
                     </div><!-- card-body -->
                   </div><!-- card-dashboard-five -->
@@ -458,13 +436,12 @@
                 <div class="col-md-6 col-lg-12">
                   <div class="card card-dashboard-five">
                     <div class="card-header">
-                      <h6 class="card-title">Sessions</h6>
-                      <span class="card-text"> A session is the period time a user is actively engaged with your website, app, etc.</span>
+                      <h6 class="card-title">Répartition des Modifications Suggérées par l’IA</h6>
+                      <span class="card-text"> Visualise les clauses et les sections de contrats ayant reçu le plus de recommandations de modification par l'IA.</span>
                     </div><!-- card-header -->
                     <div class="card-body row row-sm">
                       <div class="col-6 d-sm-flex align-items-center">
                         <div class="mg-b-10 mg-sm-b-0 mg-sm-r-10">
-                          <span class="peity-donut" data-peity='{ "fill": ["#007bff", "#cad0e8"],  "innerRadius": 14, "radius": 20 }'>4/7</span>
                         </div>
                         <div>
                           <label>% New Sessions</label>
@@ -475,10 +452,7 @@
                         <div class="mg-b-10 mg-sm-b-0 mg-sm-r-10">
                           <span class="peity-donut" data-peity='{ "fill": ["#00cccc", "#cad0e8"],  "innerRadius": 14, "radius": 20 }'>2/7</span>
                         </div>
-                        <div>
-                          <label>Pages/Session</label>
-                          <h4>1,005</h4>
-                        </div>
+                    
                       </div><!-- col -->
                     </div><!-- card-body -->
                   </div><!-- card-dashboard-five -->
@@ -487,17 +461,16 @@
             </div><!-- col-lg-3 -->
             <div class="col-lg-7 col-xl-8 mg-t-20 mg-lg-t-0">
               <div class="card card-table-one">
-                <h6 class="card-title">Statistiques et Performances</h6>
-                <p class="az-content-text mg-b-20">Part of this date range occurs before the new users metric had been calculated, so the old users metric is displayed.</p>
+                <h4 class="card-title">Score de Risque Moyen par Type de Contrat</h4>
+                <h6 class="az-content-text mg-b-20">Mes contrats analysées</h6>
                 <div class="table-responsive">
                   <table class="table">
                     <thead>
                       <tr>
                         <th class="wd-5p">&nbsp;</th>
-                        <th class="wd-45p">sociétés</th>
-                        <th>Entrances</th>
-                        <th>Bounce Rate</th>
-                        <th>Exits</th>
+                        <th class="wd-45p">Mes contrats</th>
+                        <th>Score des risques selon les contrats</th>
+                        
                       </tr>
                     </thead>
                     <tbody>
@@ -505,43 +478,37 @@
                         <td><i class="flag-icon flag-icon-us flag-icon-squared"></i></td>
                         <td><strong>United States</strong></td>
                         <td><strong>134</strong> (1.51%)</td>
-                        <td>33.58%</td>
-                        <td>15.47%</td>
+                      
                       </tr>
                       <tr>
                         <td><i class="flag-icon flag-icon-gb flag-icon-squared"></i></td>
                         <td><strong>United Kingdom</strong></td>
                         <td><strong>290</strong> (3.30%)</td>
-                        <td>9.22%</td>
-                        <td>7.99%</td>
+                      
                       </tr>
                       <tr>
                         <td><i class="flag-icon flag-icon-in flag-icon-squared"></i></td>
                         <td><strong>India</strong></td>
                         <td><strong>250</strong> (3.00%)</td>
-                        <td>20.75%</td>
-                        <td>2.40%</td>
+                       
                       </tr>
                       <tr>
                         <td><i class="flag-icon flag-icon-ca flag-icon-squared"></i></td>
                         <td><strong>Canada</strong></td>
                         <td><strong>216</strong> (2.79%)</td>
-                        <td>32.07%</td>
-                        <td>15.09%</td>
+                       
                       </tr>
                       <tr>
                         <td><i class="flag-icon flag-icon-fr flag-icon-squared"></i></td>
                         <td><strong>France</strong></td>
                         <td><strong>216</strong> (2.79%)</td>
-                        <td>32.07%</td>
-                        <td>15.09%</td>
+                      
                       </tr>
                       <tr>
                         <td><i class="flag-icon flag-icon-ph flag-icon-squared"></i></td>
                         <td><strong>Philippines</strong></td>
                         <td><strong>197</strong> (2.12%)</td>
-                        <td>32.07%</td>
-                        <td>15.09%</td>
+                        
                       </tr>
                     </tbody>
                   </table>

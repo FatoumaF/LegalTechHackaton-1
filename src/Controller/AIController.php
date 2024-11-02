@@ -8,7 +8,7 @@ use Symfony\Component\Routing\Attribute\Route;
 
 class AIController extends AbstractController
 {
-    #[Route('/a/i', name: 'app_a_i')]
+    #[Route('/aigenerator', name: 'app_a_i')]
     public function index(): Response
     {
         return $this->render('ai/index.html.twig', [
