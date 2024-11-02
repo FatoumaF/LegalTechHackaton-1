@@ -8,15 +8,17 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "clean": "rm -rf public/build",
+    "copy-assets": "cp -R assets/img public/build/img"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "description": "",
   "devDependencies": {
-    "vite": "^5.4.8",
-    "vite-plugin-symfony": "^7.0.4"
+    "vite": "^5.4.10",
+    "vite-plugin-symfony": "^7.0.5"
   },
   "dependencies": {
     "bootstrap": "^5.3.3",
