@@ -172,40 +172,10 @@
     </div><!-- az-header -->
 
 <div class="container mt-5">
-    <h1 class="text-muted">Modifiez votre Contrat</h1>
+    <h1 class="text-muted">Créer un nouveau contrat</h1>
 
-    <div class="card p-6 shadow-sm border-0">
-        {{ form_start(form) }}
-            <div class="row g-3">
-                <div class="col-12">
-                    {{ form_widget(form.titre, {'attr': {'class': 'form-control', 'placeholder': 'Titre'}}) }}
-                </div>
-                <div class="col-12">
-                    {{ form_widget(form.description, {'attr': {'class': 'form-control', 'placeholder': 'Description'}}) }}
-                </div>
-                <div class="col-md-6">
-                    {{ form_widget(form.dateDebut, {'attr': {'class': 'form-control', 'placeholder': 'Date de début'}}) }}
-                </div>
-                <div class="col-md-6">
-                    {{ form_widget(form.dateFin, {'attr': {'class': 'form-control', 'placeholder': 'Date de fin'}}) }}
-                </div>
-                <div class="col-12">
-                    {{ form_widget(form.partiesImpliquees, {'attr': {'class': 'form-control', 'placeholder': 'Parties Impliquées'}}) }}
-                </div>
-                <div class="col-12">
-                    {{ form_widget(form.pdfFile, {'attr': {'class': 'form-control', 'placeholder': 'PDF du contrat'}}) }}
-                </div>
-                <div class="col-12">
-                    {{ form_widget(form.statut, {'attr': {'class': 'form-control', 'placeholder': 'Statut'}}) }}
-                </div>
-            </div>
-            <button type="submit" class="btn btn-dark mt-4">Enregistrer</button>
-        {{ form_end(form) }}
-
-        <a href="{{ path('app_contrats') }}" class="btn btn-light mt-3">Retour à la liste des contrats</a>
-    </div>
-</div>
-
+  
+      
 
     <script src="{{ asset('lib/jquery/jquery.min.js') }}"></script>
     <script src="{{ asset('lib/bootstrap/js/bootstrap.bundle.min.js') }}"></script>

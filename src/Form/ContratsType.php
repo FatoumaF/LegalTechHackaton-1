@@ -9,6 +9,8 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Validator\Constraints\File; // Assurez-vous d'importer cette classe
+use Symfony\Component\Form\Extension\Core\Type\FileType;
+
 
 use Vich\UploaderBundle\Form\Type\VichFileType; // Importer VichFileType
 
@@ -56,7 +58,11 @@ class ContratsType extends AbstractType
                 'download_uri' => true,
                 'label' => 'Upload PDF'
             ])
-            ;
+            
+            ->add('contratFile', FileType::class, [
+                'required' => false,
+                'label' => 'Téléverser un contrat',
+            ]);
         }            
 
     public function configureOptions(OptionsResolver $resolver): void

@@ -65,18 +65,33 @@ class ContratController extends AbstractController
         $form->handleRequest($request);
     
         if ($form->isSubmitted() && $form->isValid()) {
-            // Gérer le fichier PDF
+            // Gestion du fichier PDF
             $pdfFile = $form->get('pdfFile')->getData();
             if ($pdfFile) {
-                $contrat->setPdfFile($pdfFile); // Assurez-vous que le setter existe
+                $uploadsDirectory = $this->getParameter('kernel.project_dir') . '/public/uploads/pdf';
+                $pdfFileName = uniqid() . '.' . $pdfFile->guessExtension();
+    
+                // Déplacement du fichier
+                $pdfFile->move($uploadsDirectory, $pdfFileName);
+    
+                // Mise à jour de l'entité avec le nom du fichier
+                $contrat->setPdfFile($pdfFile);
             }
     
-            // Gérer le fichier du contrat
+            // Gestion du fichier de contrat (similaire à la gestion du PDF)
             $contratFile = $form->get('contratFile')->getData();
             if ($contratFile) {
-                $contrat->setContratFile($contratFile); // Assurez-vous que le setter existe
+                $uploadsDirectory = $this->getParameter('kernel.project_dir') . '/public/uploads/contracts';
+                $contratFileName = uniqid() . '.' . $contratFile->guessExtension();
+    
+                // Déplacement du fichier
+                $contratFile->move($uploadsDirectory, $contratFileName);
+    
+                // Mise à jour de l'entité avec le nom du fichier
+                $contrat->setContratFile($contratFile);
             }
     
+            // Sauvegarde des modifications
             $entityManager->flush();
     
             return $this->redirectToRoute('app_contrats');
@@ -88,6 +103,7 @@ class ContratController extends AbstractController
         ]);
     }
     
+    
     #[Route('/contrats/{id}', name: 'app_contrat_delete', methods: ['DELETE'])]
     public function delete(Request $request, Contrats $contrat, EntityManagerInterface $entityManager): Response
     {
@@ -95,6 +111,11 @@ class ContratController extends AbstractController
             $entityManager->remove($contrat);
             $entityManager->flush();
         }
+
+        return $this->render('contrat/delete.html/twig',[
+            
+        ]
+    );
 
         return $this->redirectToRoute('app_contrats');
     }

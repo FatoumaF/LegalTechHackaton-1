@@ -237,14 +237,13 @@
                                     <td>{{ contrat.partiesImpliquees }}</td>
                                     <td>{{ contrat.statut }}</td>
                                     <td>
-                                        {% if contrat.pdfFile %}
-                                            <a href="{{ asset('uploads/pdfs/' ~ contrat.pdfFile) }}" target="_blank" class="btn btn-secondary btn-sm">Télécharger PDF</a>
-                                        {% else %}
-                                            Non disponible
-                                        {% endif %}
+                                    {% if contrat.pdfName %}
+                                    <a href="{{ asset('uploads/pdf/' ~ contrat.pdfName) }}" target="_blank" class="btn btn-secondary btn-sm">Télécharger PDF</a>
+                                   {% else %}
+                              Non disponible
+                {% endif %}                  
                                     </td>
                                     <td>
-                                     <a href="{{ path('app_contrat_show', { 'id': contrat.id }) }}" class="btn btn-outline-secondary btn-sm">Voir</a>
                                      <a href="{{ path('app_contrat_edit', { 'id': contrat.id }) }}" class="btn btn-outline-dark btn-sm">Modifier</a>
                                      <a href="{{ path('app_contrat_delete', { 'id': contrat.id }) }}" class="btn btn-outline-danger btn-sm"
                                     
